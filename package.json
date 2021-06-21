@@ -1,0 +1,23 @@
+{
+  "name": "data-visualizer-gateway",
+  "scripts": {
+    "sdk": "yarn dlx @yarnpkg/pnpify --sdk vscode",
+    "sdk:modify": "yarn dlx @yarnpkg/pnpify --sdk",
+    "dev": "NODE_ENV=development ts-node-dev --respawn --transpile-only ./src/app.ts"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0",
+    "prettier": "^2.3.1",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "@apollo/gateway": "^0.29.1",
+    "apollo-server-fastify": "^2.25.1",
+    "fast-json-stringify": "^2.7.6",
+    "fastify": "^3.18.0",
+    "fastify-compress": "^3.6.0",
+    "graphql": "^15.5.0",
+    "node-fetch": "^2.6.1"
+  }
+}
