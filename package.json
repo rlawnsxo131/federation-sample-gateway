@@ -2,7 +2,7 @@
   "name": "data-visualizer-gateway",
   "scripts": {
     "sdk": "yarn dlx @yarnpkg/pnpify --sdk vscode",
-    "sdk:modify": "yarn dlx @yarnpkg/pnpify --sdk",
+    "sdk:update": "yarn dlx @yarnpkg/pnpify --sdk",
     "dev": "NODE_ENV=development ts-node-dev --respawn --transpile-only ./src/app.ts"
   },
   "devDependencies": {

@@ -16,7 +16,7 @@ export default class Server {
 
   async start() {
     const apollo = new Apollo();
-    await Promise.all([apollo.start()]);
+    await apollo.start();
     this.server.registerApollo(apollo.createHandler());
     await this.server.start();
   }

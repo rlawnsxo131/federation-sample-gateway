@@ -10,14 +10,14 @@ export default class Apollo {
   }
 
   private async setup() {
-    const gateway = this.setupGateway() as any; // fuck typing apollo gateway..
+    const gateway = this.createGateway() as any; // fuck typing apollo gateway..
     this.server = new ApolloServer({
       gateway,
       subscriptions: false,
     });
   }
 
-  private setupGateway() {
+  private createGateway() {
     const { USER_SERVER_URL, DATA_SERVER_URL } = process.env;
     const gateway = new ApolloGateway({
       serviceList: [
