@@ -1,6 +1,6 @@
 import Apollo from './Apollo';
 import Fastify from './Fastify';
-import envConfig from '../lib/env';
+import initializeEnvironment from '../lib/initializeEnvironment';
 
 export default class Server {
   private server!: Fastify;
@@ -10,7 +10,7 @@ export default class Server {
   }
 
   private setup() {
-    envConfig();
+    initializeEnvironment();
     this.server = new Fastify();
   }
 

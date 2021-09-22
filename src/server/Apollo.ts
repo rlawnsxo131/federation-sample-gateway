@@ -1,6 +1,6 @@
 import { ApolloGateway } from '@apollo/gateway';
 import { ApolloServer } from 'apollo-server-fastify';
-import isProduction from '../lib/isProduction';
+import { isProduction } from '../constants';
 
 export default class Apollo {
   private server!: ApolloServer;
@@ -10,21 +10,21 @@ export default class Apollo {
   }
 
   private async setup() {
-    const gateway = this.createGateway() as any; // fuck typing apollo gateway..
+    const gateway = this.createGateway();
     this.server = new ApolloServer({
       gateway,
-      subscriptions: false,
     });
   }
 
   private createGateway() {
-    const { USER_SERVER_URL, DATA_SERVER_URL } = process.env;
+    const { USER_SERVICE_URL, DATA_SERVICE_URL } = process.env;
     const gateway = new ApolloGateway({
       serviceList: [
-        { name: 'user', url: USER_SERVER_URL },
-        { name: 'data', url: DATA_SERVER_URL },
+        { name: 'user', url: USER_SERVICE_URL },
+        { name: 'data', url: DATA_SERVICE_URL },
       ],
-      __exposeQueryPlanExperimental: !isProduction(),
+      debug: !isProduction,
+      __exposeQueryPlanExperimental: !isProduction,
     });
     return gateway;
   }
