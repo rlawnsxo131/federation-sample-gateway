@@ -1,1 +1,1 @@
-# data-visualizer-gateway
+# federation-sample-gateway
